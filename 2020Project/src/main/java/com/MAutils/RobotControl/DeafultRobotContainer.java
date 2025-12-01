@@ -1,0 +1,114 @@
+package com.MAutils.RobotControl;
+
+import java.util.function.Supplier;
+
+import com.MAutils.Controllers.MAController;
+import com.MAutils.Controllers.PS5MAController;
+import com.MAutils.Controllers.XboxMAController;
+import com.MAutils.DashBoard.AutoOption;
+import com.MAutils.DashBoard.AutoSelector;
+import com.MAutils.Logger.MALog;
+import com.MAutils.Utils.Constants;
+
+import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
+
+public class DeafultRobotContainer {
+
+    protected static RobotState currentRobotState;
+    protected static RobotState lastRobotState;
+    protected static MAController driverController = new XboxMAController(Constants.DRIVER_CONTROLLER_PORT);
+    protected static MAController operatorController = new PS5MAController(Constants.OPERATOR_CONTROLLER_PORT);
+    protected  static AutoSelector autoSelector;
+
+
+    public DeafultRobotContainer() {
+        //SimulatedArena.getInstance();
+        autoSelector = new AutoSelector();
+        setRobotState(new RobotState("IDLE"));
+    }
+
+    public AutoSelector setRobotPoseSupplier(Supplier<Pose2d> robotPoseSupplier) {
+        autoSelector.setRobotPoseSupplier(robotPoseSupplier);
+        return autoSelector;
+    }
+
+    public AutoSelector addAutoOption(Boolean preViz, AutoOption... autoOption) {
+        autoSelector.setAutoOptions(autoOption, preViz);
+        return autoSelector;
+    }
+
+    public Command getAutonomousCommand() {
+        return autoSelector.getSelectedAuto().getCommand();
+    }
+
+    public AutoOption getSelectedAutoOption() {
+        return autoSelector.getSelectedAuto();
+    }
+
+    public void updatePreViz() {
+        autoSelector.updateViz();
+    }
+
+    public static boolean isAtStartingPoint() {
+        return autoSelector.isAtStartingPoint();
+    }
+
+    public void clearViz() {
+        autoSelector.clearCurrentPath();
+    }
+
+
+
+    public static void setDriverController(MAController controller) {
+        driverController = controller;
+
+    }
+
+    public void addSystemCommand(SubsystemCommand command) {
+        CommandScheduler.getInstance().setDefaultCommand(command.getCommandSubsystem(), command);
+    }
+
+    public static MAController getDriverController() {
+        return driverController;
+    }
+
+    public static void setOperatorController(MAController controller) {
+        operatorController = controller;
+    }
+
+    public static MAController getOperatorController() {
+        return operatorController;
+    }
+
+    public static void setRobotState(RobotState robotState) {
+        lastRobotState = currentRobotState;
+        currentRobotState = robotState;
+    }
+
+    public static RobotState getRobotState() {
+        return currentRobotState;
+    }
+
+    public static RobotState getLastRobotState() {
+        return lastRobotState;
+    }
+
+    public static Trigger T(StateTrigger trigger) {
+        return trigger.build();
+    }
+
+    public static void runSelfTestCommands(StateSubsystem... subsystems) {
+        for (StateSubsystem subsystem : subsystems) {
+            Command selfTestCommand = subsystem.getSelfTest();
+            if (selfTestCommand != null) {
+                selfTestCommand.schedule();
+            } else {
+                MALog.log("/RobotControl/SelfTest/" + subsystem.subsystemName, "No Self Test Command");
+            }
+        }
+    }
+
+}
