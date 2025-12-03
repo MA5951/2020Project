@@ -7,7 +7,7 @@ import com.MAutils.Swerve.Utils.SwerveState;
 
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.Subsystem.Swerve.SwerveConstants;
+import frc.robot.Subsystems.Swerve.SwerveConstants;
 
 public abstract class SwerveSystemController extends Command {
   protected SwerveSystem swerveSystem;

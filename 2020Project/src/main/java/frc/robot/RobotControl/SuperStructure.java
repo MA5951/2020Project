@@ -4,29 +4,35 @@
 
 package frc.robot.RobotControl;
 
+import edu.wpi.first.math.geometry.Pose2d;
+
 /** Add your docs here. */
 public class SuperStructure {
     public static double BallCount = 0;
 
 
-    public boolean isIntakeLeftSensor() {
+    public static boolean isIntakeLeftSensor() {
         return false;
     }
 
-    public boolean isIntakeMiddleSensor() {
+    public static boolean isIntakeMiddleSensor() {
         return false;
     }
 
-    public boolean isIntakeRightSensor() {
+    public static boolean isIntakeRightSensor() {
         return false;
     }
 
-    public boolean isKickerSensor() {
+    public static boolean isKickerSensor() {
         return false;
     }
 
-    public boolean isMagazineSensor() {
+    public static boolean isMagazineSensor() {
         return false;
+    }
+
+    public static Pose2d getXYAdjustSetPoint() {
+        return new Pose2d();
     }
 
     
