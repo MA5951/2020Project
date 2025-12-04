@@ -6,41 +6,52 @@ package frc.robot.Subsystems.FourBar;
 
 import com.MAutils.Subsystems.DeafultSubsystems.Systems.PositionControlledSystem;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.RobotConstants;
+import frc.robot.RobotContainer;
+import frc.robot.RobotControl.SuperStructure;
 
 public class FourBar extends PositionControlledSystem {
 
   private static FourBar fourBar;
+  private int lastBallCount;
 
-  /** Creates a new FourBarr. */
+  private Timer timerForTimeInLastBal;
+
   private FourBar() {
-    super();
+    super(FourBarConstants.fourBarConstants);
+    timerForTimeInLastBal = new Timer();
   }
 
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
+    super.periodic();
   }
 
   @Override
   public Command getSelfTest() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'getSelfTest'");
+    return null;
   }
 
   @Override
   public boolean CAN_MOVE() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'CAN_MOVE'");
+    return RobotContainer.getRobotState() == RobotConstants.INTAKE || RobotContainer.getRobotState() ==RobotConstants.IDLE || 
+    (RobotContainer.getRobotState() != RobotConstants.INTAKE && getCurrentState() == FourBarConstants.CLOSE &&
+    timeFromLastBall() > FourBarConstants.MIN_TIME_FOR_MOVING);
   }
 
   public double getFeedForward() {
-    return 0;
+    return Math.sin(getPosition()) * FourBarConstants.KP;
   }
 
   public double timeFromLastBall() {
-    return 0;
+    timerForTimeInLastBal.start();
+    if(SuperStructure.getBallCount() > lastBallCount) {
+      timerForTimeInLastBal.restart();
+      lastBallCount = SuperStructure.getBallCount();
+    }
+    return timerForTimeInLastBal.get();
   }
 
   public static FourBar getInstance() {
@@ -51,5 +62,9 @@ public class FourBar extends PositionControlledSystem {
     return fourBar;
   }
 
-
 }
+
+
+
+
+
