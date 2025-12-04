@@ -25,11 +25,6 @@ public class FourBar extends PositionControlledSystem {
   }
 
   @Override
-  public void periodic() {
-    super.periodic();
-  }
-
-  @Override
   public Command getSelfTest() {
     return null;
   }
@@ -61,6 +56,14 @@ public class FourBar extends PositionControlledSystem {
 
     return fourBar;
   }
+
+
+  @Override
+  public void setPosition(double pose) {
+    super.setPosition(pose, getFeedForward());
+  }
+
+  
 
 }
 
