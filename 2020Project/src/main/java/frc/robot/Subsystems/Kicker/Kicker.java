@@ -13,7 +13,7 @@ public class Kicker extends PowerControlledSystem {
 
     private static Kicker kicker;
 
-    public Kicker() {
+    private Kicker() {
 
     }
 

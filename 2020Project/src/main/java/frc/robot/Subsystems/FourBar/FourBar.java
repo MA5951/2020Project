@@ -14,7 +14,7 @@ public class FourBar extends PositionControlledSystem {
   private static FourBar fourBar;
 
   /** Creates a new FourBarr. */
-  public FourBar() {
+  private FourBar() {
     super();
   }
 

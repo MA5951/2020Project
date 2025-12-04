@@ -44,7 +44,7 @@ public class SuperStructure {
     }
 
     public static void setBallCount(int newBallCount) {
-        ballCount = newBallCount
+        ballCount = newBallCount;
     }
 
     

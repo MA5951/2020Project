@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Intake extends PowerControlledSystem {
   private static Intake intake;
   /** Creates a new Intake. */
-  public Intake() {}
+  private Intake() {}
 
   @Override
   public void periodic() {

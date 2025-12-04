@@ -14,7 +14,7 @@ public class Magazine extends PowerControlledSystem {
   private static Magazine magazine;
 
   /** Creates a new Magazine. */
-  public Magazine() {}
+  private Magazine() {}
 
   @Override
   public void periodic() {
