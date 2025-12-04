@@ -10,6 +10,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Magazine extends PowerControlledSystem {
+
+  private static Magazine magazine;
+
   /** Creates a new Magazine. */
   public Magazine() {}
 
@@ -32,5 +35,13 @@ public class Magazine extends PowerControlledSystem {
 
   public double getMagazineSensorDistance() {
     return 0;
+  }
+
+  public static Magazine getInstance() {
+    if(magazine == null) {
+      magazine = new Magazine();
+    }
+
+    return magazine;
   }
 }

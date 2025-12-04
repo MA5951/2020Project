@@ -10,6 +10,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class FourBar extends PositionControlledSystem {
+
+  private static FourBar fourBar;
+
   /** Creates a new FourBarr. */
   public FourBar() {
     super();
@@ -39,4 +42,14 @@ public class FourBar extends PositionControlledSystem {
   public double timeFromLastBall() {
     return 0;
   }
+
+  public static FourBar getInstance() {
+    if(fourBar == null) {
+      fourBar = new FourBar();
+    }
+
+    return fourBar;
+  }
+
+
 }

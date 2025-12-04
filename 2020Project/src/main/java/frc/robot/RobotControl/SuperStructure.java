@@ -8,7 +8,7 @@ import edu.wpi.first.math.geometry.Pose2d;
 
 /** Add your docs here. */
 public class SuperStructure {
-    public static double BallCount = 0;
+    private static int ballCount = 0;
 
 
     public static boolean isIntakeLeftSensor() {
@@ -33,6 +33,18 @@ public class SuperStructure {
 
     public static Pose2d getXYAdjustSetPoint() {
         return new Pose2d();
+    }
+
+    public static int getBallCount() {
+        return ballCount;
+    }
+
+    public static void updateBallCount(int add) {
+        ballCount += add;
+    }
+
+    public static void setBallCount(int newBallCount) {
+        ballCount = newBallCount
     }
 
     

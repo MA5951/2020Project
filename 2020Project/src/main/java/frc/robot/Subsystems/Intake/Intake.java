@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Intake extends PowerControlledSystem {
+  private static Intake intake;
   /** Creates a new Intake. */
   public Intake() {}
 
@@ -40,6 +41,14 @@ public class Intake extends PowerControlledSystem {
   
   public double getMiddleIntakeSensorDistance() {
     return 0;
+  }
+
+  public static Intake getInstance() {
+    if(intake == null) {
+      intake = new Intake();
+    }
+
+    return intake;
   }
   
 }

@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 /** Add your docs here. */
 public class Kicker extends PowerControlledSystem {
 
+    private static Kicker kicker;
+
     public Kicker() {
 
     }
@@ -31,8 +33,16 @@ public class Kicker extends PowerControlledSystem {
     public void periodic() {
     // This method will be called once per scheduler run
     } 
-    
+
     public double getKickerSensorDistance() {
         return 0;
+    }
+
+    public static Kicker getInstance() {
+        if(kicker == null) {
+            kicker = new Kicker();
+        }
+
+        return kicker;
     }
 }
