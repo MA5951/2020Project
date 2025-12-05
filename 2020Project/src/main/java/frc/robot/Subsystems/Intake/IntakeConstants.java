@@ -30,6 +30,7 @@ public static final PowerSystemConstants INTAKE_CONSTANTS = PowerSystemConstants
 public static final double IDLE_VOLTS = 0.0;
 public static final double INTAKE_VOLTS = 0.0;
 public static final double EJECT_VOLTS = 0.0;
+public static final double IS_BALL_DELTA = 0.0;
 
 
 public static final State IDLE = new State("IDLE", Intake.getInstance());
