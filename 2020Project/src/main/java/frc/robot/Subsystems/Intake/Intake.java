@@ -7,12 +7,16 @@ package frc.robot.Subsystems.Intake;
 import com.MAutils.Subsystems.DeafultSubsystems.Systems.PowerControlledSystem;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.RobotConstants;
+import frc.robot.RobotContainer;
+import frc.robot.RobotControl.SuperStructure;
 
 public class Intake extends PowerControlledSystem {
   private static Intake intake;
   /** Creates a new Intake. */
-  private Intake() {}
+  private Intake() {
+    super(IntakeConstants.INTAKE_CONSTANTS);
+  }
 
   @Override
   public void periodic() {
@@ -27,8 +31,8 @@ public class Intake extends PowerControlledSystem {
 
   @Override
   public boolean CAN_MOVE() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'CAN_MOVE'");
+    return RobotContainer.getRobotState() == RobotConstants.INTAKE && SuperStructure.getBallCount() <= 5;
+   
   }
 
   public double getLeftIntakeSensorDistance() {
