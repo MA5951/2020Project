@@ -5,20 +5,28 @@
 package frc.robot.Subsystems.Magazine;
 
 import com.MAutils.Subsystems.DeafultSubsystems.Systems.PowerControlledSystem;
-
+import frc.robot.RobotControl.SuperStructure;
+import frc.robot.Subsystems.Magazine.MagazineConstants;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Magazine extends PowerControlledSystem {
 
+  private Boolean[] ballsInMagazine = new Boolean[] { false, false, false, false, false };
+  private static int index;
+  private static int magazineCount;
+  private static double magazineLastPose;
+  private int lastCount;
   private static Magazine magazine;
 
   /** Creates a new Magazine. */
-  private Magazine() {}
+  private Magazine() {
+    super(MagazineConstants.MAGAZINE_CONSTANTS);
+  }
 
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
+    updateMagazineLastPose();
+    updateBalls();
   }
 
   @Override
@@ -29,16 +37,61 @@ public class Magazine extends PowerControlledSystem {
 
   @Override
   public boolean CAN_MOVE() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'CAN_MOVE'");
+    return true;
   }
 
   public double getMagazineSensorDistance() {
     return 0;
   }
 
+  public void updateBalls() {
+    index = (int) Math.round(magazine.getPosition() % 360 / 72.0);
+
+    if (index == 5) {
+      index = 0;
+    }
+    
+    if (Math.abs(index * MagazineConstants.DISTANCE_BETWEEN_SLOT
+        - magazine.getPosition() % 360) <= MagazineConstants.MAGAZINE_TOLERANCE) {
+
+      ballsInMagazine[index] = SuperStructure.isMagazineSensor();
+    }
+  }
+
+  public int getMagazineCount() {
+    magazineCount = 0;
+    for (int i = 0; i < ballsInMagazine.length; i++) {
+      if (ballsInMagazine[i]) {
+        magazineCount++;
+      }
+    }
+    return magazineCount;
+  }
+
+  public void setRobotBallCount() {
+    if ((magazine.getPosition() - magazineLastPose) / 360 >= MagazineConstants.CYCLE_AMOUNT
+        && getMagazineSensorDistance() > MagazineConstants.MIN_VALUE) {
+      SuperStructure.setBallCount(magazineCount);
+    }
+  }
+
+  public void updateMagazineLastPose() {
+    if (lastCount < SuperStructure.getBallCount()) {
+      magazineLastPose = magazine.getPosition();
+    }
+    lastCount = SuperStructure.getBallCount();
+  }
+
+  public boolean isBallInSlot(int index) {
+    if (index >= 0 && index <= 4) {
+      return ballsInMagazine[index];
+    }
+    System.out.println("ERROR");
+    return false;
+  }
+
   public static Magazine getInstance() {
-    if(magazine == null) {
+    if (magazine == null) {
       magazine = new Magazine();
     }
 
