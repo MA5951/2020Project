@@ -13,7 +13,13 @@ public class PortMap {
 
     }
 
-    
+    public class IntakePorts {
+        public static final CANBusID INTAKE_MOTOR = new CANBusID(15, CANBUS.RIO_BUS);
+    }
+
+    public class MagazinePorts {
+        public static final CANBusID MAGAZINE_MOTOR = new CANBusID(16, CANBUS.RIO_BUS);
+    }
 
     public static class SwervePorts {
 
