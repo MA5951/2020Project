@@ -25,9 +25,6 @@ public class IntakeCommand extends SubsystemCommand {
             case "INTAKE":
                 intake.setVoltage(IntakeConstants.INTAKE_VOLTS);
                 break;
-            case "EJECT":
-                intake.setVoltage(IntakeConstants.EJECT_VOLTS);
-                break;
         }
     }
 
