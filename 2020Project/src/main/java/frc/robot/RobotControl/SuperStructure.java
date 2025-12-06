@@ -11,32 +11,32 @@ public class SuperStructure {
     private static int ballCount = 0;
 
 
-    public static boolean isIntakeLeftSensor() {
-        return false;
-    }
+    // public static boolean isIntakeLeftSensor() {
+    //     return false;
+    // }
 
-    public static boolean isIntakeMiddleSensor() {
-        return false;
-    }
+    // public static boolean isIntakeMiddleSensor() {
+    //     return false;
+    // }
 
-    public static boolean isIntakeRightSensor() {
-        return false;
-    }
+    // public static boolean isIntakeRightSensor() {
+    //     return false;
+    // }
 
-    public static boolean isKickerSensor() {
-        return false;
-    }
+    // public static boolean isKickerSensor() {
+    //     return false;
+    // }
 
-    public static boolean isMagazineSensor() {
-        return false;
+    // public static boolean isMagazineSensor() {
+    //     return false;
+    // }
+
+    public static int getBallCount() {
+        return ballCount;
     }
 
     public static Pose2d getXYAdjustSetPoint() {
         return new Pose2d();
-    }
-
-    public static int getBallCount() {
-        return ballCount;
     }
 
     public static void updateBallCount(int add) {
