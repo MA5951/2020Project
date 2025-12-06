@@ -38,6 +38,6 @@ public class FourBarCommand extends SubsystemCommand {
 
     @Override
     public void CantMove() {
-        
+        fourBar.setVoltage(0);
     }
 }

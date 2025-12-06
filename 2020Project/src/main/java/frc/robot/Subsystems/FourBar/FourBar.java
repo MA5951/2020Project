@@ -37,7 +37,7 @@ public class FourBar extends PositionControlledSystem {
   }
 
   public double getFeedForward() {
-    return Math.sin(getPosition()) * FourBarConstants.KP;
+    return Math.sin(getPosition()) * FourBarConstants.KG;
   }
 
   public double timeFromLastBall() {

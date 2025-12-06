@@ -9,6 +9,7 @@ import com.MAutils.Components.Motor.MotorType;
 import com.MAutils.RobotControl.State;
 import com.MAutils.Subsystems.DeafultSubsystems.Constants.PositionSystemConstants;
 import com.MAutils.Utils.GainConfig;
+import com.ctre.phoenix6.signals.InvertedValue;
 
 import frc.robot.PortMap;
 import frc.robot.Subsystems.Intake.Intake;
@@ -37,7 +38,7 @@ public class FourBarConstants {
 
     public static final double MIN_TIME_FOR_MOVING = 0; //TODO
 
-    public static final Motor fourBarMotor = new Motor(PortMap.FourBar.FOUR_BAR_MOTOR, MotorType.KRAKEN, "fourBarMotor", null);
+    public static final Motor fourBarMotor = new Motor(PortMap.FourBar.FOUR_BAR_MOTOR, MotorType.KRAKEN, "fourBarMotor", InvertedValue.Clockwise_Positive);
 
     private static final GainConfig REAL_GAIN_CONFIG = new GainConfig().withKP(KP).withKI(KI).withKD(KD);
 
