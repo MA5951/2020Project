@@ -13,7 +13,9 @@ public class PortMap {
 
     }
 
-    
+    public class KickerPorts {
+        public static final CANBusID Kicker_MOTOR = new CANBusID(17, CANBUS.RIO_BUS);
+    }
 
     public static class SwervePorts {
 

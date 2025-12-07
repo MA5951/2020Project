@@ -14,7 +14,7 @@ public class Kicker extends PowerControlledSystem {
     private static Kicker kicker;
 
     private Kicker() {
-
+        super(KickerConstants.Kicker_CONSTANTS);
     }
 
     @Override
