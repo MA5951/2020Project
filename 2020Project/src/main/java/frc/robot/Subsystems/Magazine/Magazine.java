@@ -4,7 +4,10 @@
 
 package frc.robot.Subsystems.Magazine;
 
+import com.MAutils.Components.MACam;
 import com.MAutils.Subsystems.DeafultSubsystems.Systems.PowerControlledSystem;
+
+import frc.robot.PortMap;
 import frc.robot.RobotControl.SuperStructure;
 import frc.robot.Subsystems.Magazine.MagazineConstants;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -17,14 +20,17 @@ public class Magazine extends PowerControlledSystem {
   private static double magazineLastPose;
   private int lastCount;
   private static Magazine magazine;
+  private MACam maCam;
 
   /** Creates a new Magazine. */
   private Magazine() {
     super(MagazineConstants.MAGAZINE_CONSTANTS);
+    maCam = new MACam(PortMap.MagazinePorts.MAGAZINE_MACAM_SENSORE);
   }
 
   @Override
   public void periodic() {
+    super.periodic();
     updateMagazineLastPose();
     updateBalls();
   }
@@ -41,19 +47,17 @@ public class Magazine extends PowerControlledSystem {
   }
 
   public double getMagazineSensorDistance() {
-    return 0;
+    return maCam.getDistance();
   }
 
   public void updateBalls() {
-    index = (int) Math.round(magazine.getPosition() % 360 / 72.0);
-
-    if (index == 5) {
-      index = 0;
-    }
+    index = (int) Math.round((magazine.getPosition() % 360) / 72.0);
     
     if (Math.abs(index * MagazineConstants.DISTANCE_BETWEEN_SLOT
         - magazine.getPosition() % 360) <= MagazineConstants.MAGAZINE_TOLERANCE) {
-
+      if(index==5) {
+        index = 0;
+      }
       ballsInMagazine[index] = SuperStructure.isMagazineSensor();
     }
   }
