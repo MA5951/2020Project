@@ -15,6 +15,8 @@ public class PortMap {
 
     public class KickerPorts {
         public static final CANBusID Kicker_MOTOR = new CANBusID(17, CANBUS.RIO_BUS);
+        public static final int MACAM_ID = 18;
+
     }
 
     public static class SwervePorts {

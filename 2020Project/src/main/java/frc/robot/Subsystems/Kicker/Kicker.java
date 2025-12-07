@@ -4,17 +4,22 @@
 
 package frc.robot.Subsystems.Kicker;
 
+import com.MAutils.Components.MACam;
 import com.MAutils.Subsystems.DeafultSubsystems.Systems.PowerControlledSystem;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.PortMap;
 
 /** Add your docs here. */
 public class Kicker extends PowerControlledSystem {
 
     private static Kicker kicker;
 
+    private MACam maCam;
+
     private Kicker() {
         super(KickerConstants.Kicker_CONSTANTS);
+        maCam = new MACam(PortMap.KickerPorts.MACAM_ID);
     }
 
     @Override
@@ -25,17 +30,12 @@ public class Kicker extends PowerControlledSystem {
 
     @Override
     public boolean CAN_MOVE() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'CAN_MOVE'");
+        return true;
     }
 
-    @Override
-    public void periodic() {
-    // This method will be called once per scheduler run
-    } 
 
     public double getKickerSensorDistance() {
-        return 0;
+        return maCam.getDistance();
     }
 
     public static Kicker getInstance() {

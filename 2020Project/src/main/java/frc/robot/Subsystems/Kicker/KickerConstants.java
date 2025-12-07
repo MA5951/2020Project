@@ -22,10 +22,11 @@ public static final double IDLE_VOLTS = 0.0;
 public static final double SHOOTING_VOLTS = 0.0;
 public static final double EJECT_VOLTS = 0.0;
 public static final double HOLDING_VOLTS = 0.0;
+public static final double IS_KICKER_DELTA = 0;
 
 
-    static final PowerSystemConstants Kicker_CONSTANTS = PowerSystemConstants
-    .builder("Kicker_CONSTANTS", KickerMotor)
+public static final PowerSystemConstants Kicker_CONSTANTS = PowerSystemConstants
+    .builder("Kicker", KickerMotor)
     .gear(0)
     .isBrake(true)
     .build(PowerSystemConstants::new);
