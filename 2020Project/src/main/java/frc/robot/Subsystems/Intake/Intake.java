@@ -6,9 +6,11 @@ package frc.robot.Subsystems.Intake;
 
 import java.util.function.Supplier;
 
+import com.MAutils.Components.MACam;
 import com.MAutils.Subsystems.DeafultSubsystems.Systems.PowerControlledSystem;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.PortMap;
 import frc.robot.RobotConstants;
 import frc.robot.RobotContainer;
 import frc.robot.RobotControl.SuperStructure;
@@ -21,16 +23,24 @@ public class Intake extends PowerControlledSystem {
       () -> getRightIntakeSensorDistance()
   };
 
-  double[] lastMeasurement = new double[3];
+  double[] lastMeasurement = new double[] {0,0,0}; //TODO: add tee first measurement
   private static Intake intake;
+  private MACam leftMACam;
+  private MACam middleMACam;
+  private MACam rightMACam;
+
 
   /** Creates a new Intake. */
   private Intake() {
     super(IntakeConstants.INTAKE_CONSTANTS);
+    leftMACam = new MACam(PortMap.IntakePorts.INTAKE_LEFT_MACAM);
+    middleMACam = new MACam(PortMap.IntakePorts.INTAKE_MIDDLE_MACAM);
+    rightMACam = new MACam(PortMap.IntakePorts.INTAKE_RIGHT_MACAM);
   }
 
   @Override
   public void periodic() {
+    super.periodic();
     for (int i = 0; i < sensors.length; i++) {
       checkBalls(i);
     }
@@ -49,19 +59,18 @@ public class Intake extends PowerControlledSystem {
   }
 
   public double getLeftIntakeSensorDistance() {
-    return 0;
+    return leftMACam.getDistance();
   }
 
   public double getRightIntakeSensorDistance() {
-    return 0;
+    return rightMACam.getDistance();
   }
 
   public double getMiddleIntakeSensorDistance() {
-    return 0;
+    return middleMACam.getDistance();
   }
 
   public void checkBalls(int index) {
-
     if (Math.abs(sensors[index].get() - lastMeasurement[index]) > IntakeConstants.IS_BALL_DELTA) {
       SuperStructure.updateBallCount(1);
     }

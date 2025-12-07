@@ -26,7 +26,7 @@ public static final double IS_BALL_DELTA = 0.0;
 
 
 public static final PowerSystemConstants INTAKE_CONSTANTS = PowerSystemConstants
-.builder("INTAKE_CONSTANTS", intakeMotor)
+.builder("Intake", intakeMotor)
 .gear(0)
 .isBrake(true)
 .build(PowerSystemConstants::new);
