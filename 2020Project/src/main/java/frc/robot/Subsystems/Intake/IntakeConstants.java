@@ -14,29 +14,29 @@ import frc.robot.PortMap;
 
 /** Add your docs here. */
 public class IntakeConstants {
-private static final Motor intakeMotor = new Motor(PortMap.IntakePorts.INTAKE_MOTOR, MotorType.KRAKEN, 
-"intakeMotor", InvertedValue.Clockwise_Positive);
+    private static final Motor intakeMotor = new Motor(PortMap.IntakePorts.INTAKE_MOTOR, MotorType.KRAKEN, 
+    "intakeMotor", InvertedValue.Clockwise_Positive);
 
 
 
-public static final double IDLE_VOLTS = 0.0;
-public static final double INTAKE_VOLTS = 0.0;
-public static final double IS_BALL_DELTA = 0.0;
+    public static final double IDLE_VOLTS = 0.0;
+    public static final double INTAKE_VOLTS = 0.0;
+    public static final double IS_BALL_DELTA = 0.0;
 
 
 
-public static final PowerSystemConstants INTAKE_CONSTANTS = PowerSystemConstants
-.builder("Intake", intakeMotor)
-.gear(0)
-.isBrake(true)
-.build(PowerSystemConstants::new);
+    public static final PowerSystemConstants INTAKE_CONSTANTS = PowerSystemConstants
+    .builder("Intake", intakeMotor)
+    .gear(0)
+    .isBrake(true)
+    .build(PowerSystemConstants::new);
 
 
 
 
 
-public static final State IDLE = new State("IDLE", Intake.getInstance());
-public static final State INTAKE = new State("INTAKE", Intake.getInstance());
+    public static final State IDLE = new State("IDLE", Intake.getInstance());
+    public static final State INTAKE = new State("INTAKE", Intake.getInstance());
 
 
 }
