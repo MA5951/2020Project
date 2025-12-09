@@ -16,6 +16,12 @@ public class PortMap {
         public static final CANBusID FOUR_BAR_MOTOR = new CANBusID(10, CANBUS.RIO_BUS);
     }
 
+    public class KickerPorts {
+        public static final CANBusID Kicker_MOTOR = new CANBusID(17, CANBUS.RIO_BUS);
+        public static final int MACAM_ID = 18;
+
+    }
+
     public class IntakePorts {
         public static final CANBusID INTAKE_MOTOR = new CANBusID(15, CANBUS.RIO_BUS);
         public static final int INTAKE_LEFT_MACAM = 13;
@@ -28,6 +34,7 @@ public class PortMap {
         public static final CANBusID MAGAZINE_MOTOR = new CANBusID(16, CANBUS.RIO_BUS);
         public static final int MAGAZINE_MACAM_SENSORE = 19;
     }
+
 
     public static class SwervePorts {
 

@@ -37,7 +37,7 @@ public abstract class StateSubsystem extends SubsystemBase {
         return lastState;
     }
 
-    public State getCurrentState() {
+    public static State getCurrentState() {
         return currentState;
     }
 
