@@ -22,7 +22,7 @@ public class MagazineConstants {
     .builder("Magazine", magazineMotor)
     .gear(1)
     .isBrake(true)
-    .rampRate(1)
+    .rampRate(0.3)
     .build(PowerSystemConstants::new);
 
 

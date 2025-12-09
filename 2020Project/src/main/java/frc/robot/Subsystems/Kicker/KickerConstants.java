@@ -19,7 +19,7 @@ private static final Motor KickerMotor = new Motor(PortMap.KickerPorts.Kicker_MO
  "KickerMotor", InvertedValue.CounterClockwise_Positive);
 
 public static final double IDLE_VOLTS = 0.0;
-public static final double SHOOTING_VOLTS = 4;
+public static final double SHOOTING_VOLTS = 8;
 public static final double EJECT_VOLTS = 3;
 public static final double HOLDING_VOLTS = -0.3;
 public static final double IS_KICKER_DELTA = 0;
