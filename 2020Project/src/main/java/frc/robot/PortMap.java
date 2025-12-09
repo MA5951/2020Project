@@ -10,7 +10,10 @@ public class PortMap {
     public static class CANBUS {
         public static final CANBus RIO_BUS = new CANBus("rio");
         public static final CANBus CANivor_BUS = new CANBus("Swerve");
+    }
 
+    public static class FourBar {
+        public static final CANBusID FOUR_BAR_MOTOR = new CANBusID(10, CANBUS.RIO_BUS);
     }
 
     public class IntakePorts {
@@ -24,7 +27,7 @@ public class PortMap {
     public class MagazinePorts {
         public static final CANBusID MAGAZINE_MOTOR = new CANBusID(16, CANBUS.RIO_BUS);
         public static final int MAGAZINE_MACAM_SENSORE = 19;
-
+    }
 
     public static class SwervePorts {
 
