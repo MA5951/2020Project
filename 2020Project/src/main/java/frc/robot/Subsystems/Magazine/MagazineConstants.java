@@ -1,4 +1,5 @@
 
+
 package frc.robot.Subsystems.Magazine;
 
 import com.MAutils.Components.Motor;
@@ -14,13 +15,14 @@ import frc.robot.PortMap;
 public class MagazineConstants {
 
     private static final Motor magazineMotor = new Motor(PortMap.MagazinePorts.MAGAZINE_MOTOR, MotorType.KRAKEN, 
-    "magazineMotor", InvertedValue.Clockwise_Positive);
+    "magazineMotor", InvertedValue.CounterClockwise_Positive);
 
 
     public static final PowerSystemConstants MAGAZINE_CONSTANTS = PowerSystemConstants
     .builder("Magazine", magazineMotor)
-    .gear(0)
+    .gear(1)
     .isBrake(true)
+    .rampRate(1)
     .build(PowerSystemConstants::new);
 
 
@@ -38,15 +40,15 @@ public class MagazineConstants {
 
     public static final double IDLE_VOLTS = 0.0;
 
-    public static final double INTAKE_VOLTS = 0.0;
+    public static final double INTAKE_VOLTS = 1.5;
 
-    public static final double HOLDING_VOLTS = 0.0;
+    public static final double HOLDING_VOLTS = 1;
 
-    public static final double SHOOTING_VOLTS = 0.0;
+    public static final double SHOOTING_VOLTS = 8;
 
     public static final double EJECT_VOLTS = 0.0;
 
-    public static final double SORT_VOLTS = 0.0;
+    public static final double SORT_VOLTS = 2;
 
     public static final double RESET_VOLTS = 0.0;
 

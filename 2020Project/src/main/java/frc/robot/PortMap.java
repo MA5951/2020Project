@@ -13,17 +13,19 @@ public class PortMap {
     }
 
     public static class FourBar {
-        public static final CANBusID FOUR_BAR_MOTOR = new CANBusID(10, CANBUS.RIO_BUS);
+        public static final CANBusID FOUR_BAR_MOTOR = new CANBusID(15, CANBUS.RIO_BUS);
+        public static final CANBusID FOUR_CANCODER = new CANBusID(37, CANBUS.CANivor_BUS);
+
     }
 
     public class KickerPorts {
-        public static final CANBusID Kicker_MOTOR = new CANBusID(17, CANBUS.RIO_BUS);
-        public static final int MACAM_ID = 18;
+        public static final CANBusID Kicker_MOTOR = new CANBusID(19, CANBUS.RIO_BUS);
+        public static final int MACAM_ID = 19;
 
     }
 
     public class IntakePorts {
-        public static final CANBusID INTAKE_MOTOR = new CANBusID(15, CANBUS.RIO_BUS);
+        public static final CANBusID INTAKE_MOTOR = new CANBusID(16, CANBUS.RIO_BUS);
         public static final int INTAKE_LEFT_MACAM = 13;
         public static final int INTAKE_RIGHT_MACAM = 14;
         public static final int INTAKE_MIDDLE_MACAM = 15;
@@ -31,7 +33,7 @@ public class PortMap {
     }
 
     public class MagazinePorts {
-        public static final CANBusID MAGAZINE_MOTOR = new CANBusID(16, CANBUS.RIO_BUS);
+        public static final CANBusID MAGAZINE_MOTOR = new CANBusID(13, CANBUS.RIO_BUS);
         public static final int MAGAZINE_MACAM_SENSORE = 19;
     }
 

@@ -15,19 +15,19 @@ import frc.robot.PortMap;
 /** Add your docs here. */
 public class KickerConstants {
 
-private static final Motor KickerMotor = new Motor(PortMap.KickerPorts.Kicker_MOTOR, MotorType.KRAKEN,
- "KickerMotor", InvertedValue.Clockwise_Positive);
+private static final Motor KickerMotor = new Motor(PortMap.KickerPorts.Kicker_MOTOR, MotorType.FALCON,
+ "KickerMotor", InvertedValue.CounterClockwise_Positive);
 
 public static final double IDLE_VOLTS = 0.0;
-public static final double SHOOTING_VOLTS = 0.0;
-public static final double EJECT_VOLTS = 0.0;
-public static final double HOLDING_VOLTS = 0.0;
+public static final double SHOOTING_VOLTS = 4;
+public static final double EJECT_VOLTS = 3;
+public static final double HOLDING_VOLTS = -0.3;
 public static final double IS_KICKER_DELTA = 0;
 
 
 public static final PowerSystemConstants Kicker_CONSTANTS = PowerSystemConstants
     .builder("Kicker", KickerMotor)
-    .gear(0)
+    .gear(1)
     .isBrake(true)
     .build(PowerSystemConstants::new);
 

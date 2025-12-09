@@ -82,6 +82,9 @@ public class PowerIOReal implements PowerSystemIO {
 
         motorConfig.CurrentLimits.StatorCurrentLimit = systemConstants.STATOR_CURRENT_LIMIT;
         motorConfig.CurrentLimits.StatorCurrentLimitEnable = systemConstants.CURRENT_LIMIT_ENABLED;
+
+        motorConfig.OpenLoopRamps.VoltageOpenLoopRampPeriod = systemConstants.RAMP_RATE;
+        motorConfig.ClosedLoopRamps.VoltageClosedLoopRampPeriod = systemConstants.RAMP_RATE;
     }
 
     @Override

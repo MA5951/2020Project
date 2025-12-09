@@ -19,7 +19,7 @@ public class SwerveTeleopController extends SwerveSystemController {
 
     public void SetSwerveState() {
 
-        
+        setState(SwerveConstants.FIELD_CENTRIC_20);
 
     }
 

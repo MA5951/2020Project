@@ -22,7 +22,6 @@ public class Magazine extends PowerControlledSystem {
   private static Magazine magazine;
   private MACam maCam;
 
-  /** Creates a new Magazine. */
   private Magazine() {
     super(MagazineConstants.MAGAZINE_CONSTANTS);
     maCam = new MACam(PortMap.MagazinePorts.MAGAZINE_MACAM_SENSORE);

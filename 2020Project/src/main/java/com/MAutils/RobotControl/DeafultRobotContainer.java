@@ -19,7 +19,7 @@ public class DeafultRobotContainer {
 
     protected static RobotState currentRobotState;
     protected static RobotState lastRobotState;
-    protected static MAController driverController = new XboxMAController(Constants.DRIVER_CONTROLLER_PORT);
+    protected static MAController driverController = new PS5MAController(Constants.DRIVER_CONTROLLER_PORT);
     protected static MAController operatorController = new PS5MAController(Constants.OPERATOR_CONTROLLER_PORT);
     protected  static AutoSelector autoSelector;
 

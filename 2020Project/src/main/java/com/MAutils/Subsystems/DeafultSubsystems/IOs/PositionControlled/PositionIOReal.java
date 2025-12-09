@@ -161,7 +161,7 @@ public class PositionIOReal extends PowerIOReal implements PositionSystemIO {
         MALog.log(logPath + "/Error", getError());
         MALog.log(logPath + "/At Point", atPoint());
         MALog.log(logPath + "/Forward Limit", getCurrent() > systemConstants.MOTOR_LIMIT_CURRENT
-        || getPosition() > systemConstants.MAX_POSE || getSetPoint() > systemConstants.MIN_POSE);
+        || getPosition() > systemConstants.MAX_POSE || getSetPoint() > systemConstants.MAX_POSE);
         MALog.log(logPath + "/Reverse Limit", getCurrent() < -systemConstants.MOTOR_LIMIT_CURRENT
         || getPosition() < systemConstants.MIN_POSE || getSetPoint() < systemConstants.MIN_POSE);
 

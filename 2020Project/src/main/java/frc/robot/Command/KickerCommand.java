@@ -6,8 +6,6 @@ package frc.robot.Command;
 
 import com.MAutils.RobotControl.SubsystemCommand;
 
-import frc.robot.RobotControl.SuperStructure;
-
 import frc.robot.Subsystems.Kicker.Kicker;
 import frc.robot.Subsystems.Kicker.KickerConstants;
 
@@ -21,21 +19,21 @@ public class KickerCommand extends SubsystemCommand {
     }
 
     public void Automatic() {
-        switch (Kicker.getCurrentState().stateName) {
+        switch (kicker.getCurrentState().stateName) {
             case "IDLE":
-                Kicker.setVoltage(KickerConstants.IDLE_VOLTS);
+                kicker.setVoltage(KickerConstants.IDLE_VOLTS);
                 break;
             case "SHOOTING":
-                Kicker.setVoltage(KickerConstants.SHOOTING_VOLTS);
+                kicker.setVoltage(KickerConstants.SHOOTING_VOLTS);
                 break;
-            case "EJECT";
-                Kicker.setVoltage(KickerConstants.EJECT_VOLTS);
+            case "EJECT":
+                kicker.setVoltage(KickerConstants.EJECT_VOLTS);
                 break;
-            case "HOLDING";
-                Kicker.setVoltage(KickerConstants.HOLDING_VOLTS);
+            case "HOLDING":
+                kicker.setVoltage(KickerConstants.HOLDING_VOLTS);
                 break;
         }
-        }
+    }
 
     @Override
     public void Manual() {

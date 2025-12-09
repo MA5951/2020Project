@@ -11,24 +11,8 @@ import frc.robot.Subsystems.Magazine.MagazineConstants;
 /** Add your docs here. */
 public class SuperStructure {
     private static int ballCount = 0;
-    private static double magazineLastMeasurment = 0; //TODO : add first Measurment
+    private static double magazineLastMeasurment = 0;
 
-
-    // public static boolean isIntakeLeftSensor() {
-    //     return false;
-    // }
-
-    // public static boolean isIntakeMiddleSensor() {
-    //     return false;
-    // }
-
-    // public static boolean isIntakeRightSensor() {
-    //     return false;
-    // }
-
-    // public static boolean isKickerSensor() {
-    //     return false;
-    // }
 
     public static boolean isMagazineSensor() {
         return MagazineConstants.MAGAZINE_IS_MAX_DELTA > Magazine.getInstance().getMagazineSensorDistance() - magazineLastMeasurment;

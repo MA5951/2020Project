@@ -75,7 +75,7 @@ public abstract class PowerControlledSystem extends StateSubsystem {
         return systemIO.getVelocity();
     }
 
-    public static void setVoltage(double voltage) {
+    public void setVoltage(double voltage) {
         systemIO.setVoltage(voltage);
     }
 

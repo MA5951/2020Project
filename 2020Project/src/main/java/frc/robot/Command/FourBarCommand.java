@@ -18,15 +18,15 @@ public class FourBarCommand extends SubsystemCommand {
     public void Automatic() {
         switch (fourBar.getCurrentState().stateName) {
             case "IDLE":
-                fourBar.setPosition(FourBarConstants.IDLE_ANGLE);
+                fourBar.setPosition(FourBarConstants.IDLE_ANGLE, fourBar.getFeedForward());
                 break;
         
             case "OPEN" :
-                fourBar.setPosition(FourBarConstants.OPEN_ANGLE);
+                fourBar.setPosition(FourBarConstants.OPEN_ANGLE, fourBar.getFeedForward());
                 break;
             
             case "CLOSE" :
-                fourBar.setPosition(FourBarConstants.CLOSE_ANGLE);
+                fourBar.setPosition(FourBarConstants.CLOSE_ANGLE, fourBar.getFeedForward());
                 break;
         }
     }
