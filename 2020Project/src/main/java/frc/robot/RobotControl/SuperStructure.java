@@ -5,38 +5,41 @@
 package frc.robot.RobotControl;
 
 import edu.wpi.first.math.geometry.Pose2d;
+import frc.robot.Subsystems.Magazine.Magazine;
+import frc.robot.Subsystems.Magazine.MagazineConstants;
 
 /** Add your docs here. */
 public class SuperStructure {
     private static int ballCount = 0;
+    private static double magazineLastMeasurment = 0; //TODO : add first Measurment
 
 
-    public static boolean isIntakeLeftSensor() {
-        return false;
-    }
+    // public static boolean isIntakeLeftSensor() {
+    //     return false;
+    // }
 
-    public static boolean isIntakeMiddleSensor() {
-        return false;
-    }
+    // public static boolean isIntakeMiddleSensor() {
+    //     return false;
+    // }
 
-    public static boolean isIntakeRightSensor() {
-        return false;
-    }
+    // public static boolean isIntakeRightSensor() {
+    //     return false;
+    // }
 
-    public static boolean isKickerSensor() {
-        return false;
-    }
+    // public static boolean isKickerSensor() {
+    //     return false;
+    // }
 
     public static boolean isMagazineSensor() {
-        return false;
-    }
-
-    public static Pose2d getXYAdjustSetPoint() {
-        return new Pose2d();
+        return MagazineConstants.MAGAZINE_IS_MAX_DELTA > Magazine.getInstance().getMagazineSensorDistance() - magazineLastMeasurment;
     }
 
     public static int getBallCount() {
         return ballCount;
+    }
+
+    public static Pose2d getXYAdjustSetPoint() {
+        return new Pose2d();
     }
 
     public static void updateBallCount(int add) {
@@ -47,5 +50,8 @@ public class SuperStructure {
         ballCount = newBallCount;
     }
 
+    public static void update() {
+        magazineLastMeasurment = Magazine.getInstance().getMagazineSensorDistance();
+    }
     
 }
