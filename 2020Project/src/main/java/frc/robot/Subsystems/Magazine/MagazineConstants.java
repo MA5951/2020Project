@@ -40,11 +40,11 @@ public class MagazineConstants {
 
     public static final double IDLE_VOLTS = 0.0;
 
-    public static final double INTAKE_VOLTS = 1.5;
+    public static final double INTAKE_VOLTS = 0.5;
 
     public static final double HOLDING_VOLTS = 1;
 
-    public static final double SHOOTING_VOLTS = 8;
+    public static final double SHOOTING_VOLTS = 10;
 
     public static final double EJECT_VOLTS = 0.0;
 

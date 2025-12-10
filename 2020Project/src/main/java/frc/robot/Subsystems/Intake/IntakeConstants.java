@@ -18,7 +18,7 @@ public class IntakeConstants {
     "intakeMotor", InvertedValue.CounterClockwise_Positive);
 
     public static final double IDLE_VOLTS = 0.0;
-    public static final double INTAKE_VOLTS = 3;
+    public static final double INTAKE_VOLTS = 4;
     public static final double IS_BALL_DELTA = 0.0;
 
     public static final PowerSystemConstants INTAKE_CONSTANTS = PowerSystemConstants
